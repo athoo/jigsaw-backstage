@@ -3,7 +3,7 @@
     <div class="column0">
       <div>
         <select ng-model="schedule.scheduleType" as-string>
-          <option disabled selected value="">Signal Schedule</option>
+          <option disabled selected value="">发信安排</option>
           <option ng-selected="$index === schedule.scheduleType" ng-repeat="type in scheduleTypes"
           value="{{$index}}">
             {{type}}
@@ -26,45 +26,45 @@
           <input type="number" ng-model="schedule.snoozeTimeInMinutes">
         </md-input-container>
 
-        <md-checkbox ng-model="schedule.userEditable" aria-label="User editable">
+  <!--       <md-checkbox ng-model="schedule.userEditable" aria-label="User editable">
           用户可自己编辑
-        </md-checkbox>
+        </md-checkbox> -->
 
-        <md-checkbox ng-model="schedule.onlyEditableOnJoin" aria-label="User editable on join">
+<!--         <md-checkbox ng-model="schedule.onlyEditableOnJoin" aria-label="User editable on join">
           加入时候编辑
-        </md-checkbox>
+        </md-checkbox> -->
       </div>
     </div>
 
     <div class="column1">
       <div ng-if="schedule.scheduleType === 0">
-        Repeat every
+        每
         <select ng-model="schedule.repeatRate" as-string>
           <option value="" disabled selected></option>
           <option ng-selected="rate === schedule.repeatRate" ng-repeat="rate in repeatRates"
           value="{{rate}}">{{rate}}</option>
         </select>
-        days
+        天 重复一次
       </div>
 
       <div ng-if="schedule.scheduleType === 2">
-        Repeat every
+        每
         <select ng-model="schedule.repeatRate" as-string>
           <option value="" disabled selected></option>
           <option ng-selected="rate === schedule.repeatRate" ng-repeat="rate in repeatRates"
           value="{{rate}}">{{rate}}</option>
         </select>
-        weeks
+        周 重复一次
       </div>
 
       <div ng-if="schedule.scheduleType === 3">
-        Repeat every
+        每
         <select ng-model="schedule.repeatRate" as-string>
           <option value="" disabled selected></option>
           <option ng-selected="rate === schedule.repeatRate" ng-repeat="rate in repeatRates"
           value="{{rate}}">{{rate}}</option>
         </select>
-        months
+        月 重复一次
       </div>
 
       <div ng-if="schedule.scheduleType === 3">
@@ -106,17 +106,17 @@
       ng-if="schedule.scheduleType >= 0 && schedule.scheduleType <= 3">
 
         <md-input-container flex>
-          <label>Time</label>
+          <label>时间</label>
           <input type="time" milli ng-model="time.fixedTimeMillisFromMidnight">
         </md-input-container>
 
         <md-input-container flex>
-          <label>Label</label>
+          <label>标签</label>
           <input type="text" ng-model="time.label">
         </md-input-container>
 
         <div flex>
-          <md-button add-icon ng-click="addTime(schedule.signalTimes, $index)">Time</md-button>
+          <md-button add-icon ng-click="addTime(schedule.signalTimes, $index)">时间</md-button>
           <a href="" class="remove button" ng-click="remove(schedule.signalTimes, $index)"
           ng-if="schedule.signalTimes.length > 1"></a>
         </div>

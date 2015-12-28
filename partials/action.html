@@ -3,19 +3,19 @@
     <div layout="row">
       <div>
         <select ng-model="action.actionCode" as-string>
-          <option value="" disabled selected>Choose Action</option>
+          <option value="" disabled selected>执行操作</option>
           <option ng-selected="(id) == action.actionCode" ng-repeat="(id, type) in actionTypes"
           value="{{id}}">{{type}}</option>
         </select>
       </div>
 
       <div class="ios" flex>
-        <no-ios ng-if="action.actionCode > 1">iOS does not support this action</no-ios>
+        <no-ios ng-if="action.actionCode > 1">iOS不支持该操作</no-ios>
       </div>
     </div>
 
     <md-input-container ng-if="action.actionCode === 2">
-      <label>Message</label>
+      <label>信息</label>
       <input type="text" ng-model="action.msgText">
     </md-input-container>
 
@@ -24,10 +24,10 @@
       <div layout="row">
         <div flex>
         <md-input-container flex>
-          <label>Timeout</label>
+          <label>超时</label>
           <input type="number" ng-model="action.timeout" min="0">
           <div ng-messages>
-            <div ng-message>minutes</div>
+            <div ng-message>分钟</div>
           </div>
         </md-input-container>
         </div>
@@ -35,7 +35,7 @@
         <div flex>
           <md-input-container flex>
             <md-checkbox ng-model="action.snoozeCount" aria-label="Snooze repeats" ng-true-value="1" ng-false-value="0">
-              Snooze repeats
+              稍后提醒
             </md-checkbox>
           </md-input-container>
         </div>

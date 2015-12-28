@@ -230,7 +230,7 @@ pacoApp.controller('ExperimentCtrl', ['$scope', '$mdDialog', '$filter',
       $mdDialog.show(
         $mdDialog.alert()
         .title('Save Status')
-        .content('Saving to remote PACO server')
+        .content('Saving to remote server')
         .ariaLabel('Save Status')
         .ok('Cancel')
       ).then(function() {
@@ -1000,7 +1000,7 @@ pacoApp.controller('SummaryCtrl', ['$scope', 'config', function($scope, config) 
       '') {
       return config.actionTypes[$scope.action.actionCode];
     } else {
-      return 'Undefined';
+      return '未定义';
     }
   };
 
@@ -1008,7 +1008,7 @@ pacoApp.controller('SummaryCtrl', ['$scope', 'config', function($scope, config) 
     if ($scope.cue.cueCode !== undefined && $scope.cue.cueCode !== '') {
       return config.cueTypes[$scope.cue.cueCode - 1];
     } else {
-      return 'Undefined';
+      return '未定义';
     }
   };
 
@@ -1017,53 +1017,53 @@ pacoApp.controller('SummaryCtrl', ['$scope', 'config', function($scope, config) 
     var str = '';
 
     if (sched.scheduleType === null) {
-      return 'Undefined';
+      return '未定义';
     }
 
     //ispiro:using === for these comparisons breaks on schedule edit
     if (sched.scheduleType == 0) {
       if (sched.repeatRate == 1) {
-        str += 'Every day';
+        str += '每天';
       } else if (sched.repeatRate != undefined) {
-        str += 'Every ' + sched.repeatRate + ' days'
+        str += '每 ' + sched.repeatRate + ' days'
       }
     } else if (sched.scheduleType == 1) {
-      str += 'Every weekday';
+      str += '每周';
     } else if (sched.scheduleType == 2) {
       if (sched.repeatRate == 1) {
-        str += 'Every week';
+        str += '每周';
       } else if (sched.repeatRate != undefined) {
-        str += 'Every ' + sched.repeatRate + ' weeks'
+        str += '每 ' + sched.repeatRate + ' weeks'
       }
     } else if (sched.scheduleType == 3) {
       if (sched.repeatRate == 1) {
-        str += 'Every month';
+        str += '每月';
       } else if (sched.repeatRate != undefined) {
-        str += 'Every ' + sched.repeatRate + ' months'
+        str += '每 ' + sched.repeatRate + ' months'
       }
     } else if (sched.scheduleType == 4) {
       str += config.scheduleTypes[4] + ', ' + sched.esmFrequency +
-        ' time';
+        ' 词';
       if (sched.esmFrequency > 1) {
         str += 's per ';
       } else {
-        str += ' per ';
+        str += ' 每 ';
       }
       str += config.esmPeriods[sched.esmPeriodInDays];
 
     } else if (sched.scheduleType == 5) {
-      str = 'Self report only';
+      str = '自我报告';
     } else {
-      str = 'Undefined';
+      str = '未定义';
     }
 
     if (sched.scheduleType >= 0 && sched.scheduleType <= 3) {
       if (sched.signalTimes) {
         str += ', ' + sched.signalTimes.length;
         if (sched.signalTimes.length == 1) {
-          str += ' time each';
+          str += ' 次/每回';
         } else {
-          str += ' times each';
+          str += ' 次/每回';
         }
       }
     }

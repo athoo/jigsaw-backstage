@@ -2,7 +2,7 @@
 
   <div class="header section">
     <span ng-bind="input.name" ng-if="input.name"></span>
-    <span ng-if="!input.name">Input {{$index + 1}}</span>
+    <span ng-if="!input.name">问题 {{$index + 1}}</span>
 
     <a class="remove button" href="" ng-click="remove(group.inputs, $index)"></a>
     <a class="add button" href="" ng-click="addInput($event, null, $index + 1)"></a>
@@ -21,23 +21,23 @@
       </select>
 
       <md-checkbox ng-model="input.required" aria-label="Required">
-        Required
+        必答
       </md-checkbox>
 
-      <md-checkbox ng-model="input.conditional" aria-label="Conditional">
+   <!--    <md-checkbox ng-model="input.conditional" aria-label="Conditional">
         Conditional
-      </md-checkbox>
+      </md-checkbox> -->
     </div>
 
     <div class="column1">
       <md-input-container>
-        <label>Question for the Participant</label>
+        <label>问题</label>
         <input ng-model="input.text">
       </md-input-container>
 
       <div layout="row">
         <md-input-container class="medium" flex>
-          <label>Input {{$index + 1}} Variable Name</label>
+          <label>问题 {{$index + 1}} 存入变量</label>
           <input ng-model="input.name">
         </md-input-container>
 

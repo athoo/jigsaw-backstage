@@ -314,11 +314,11 @@ pacoApp.service('config', function() {
 
   this.responseTypes = [
     'likert',
-    'likert_smileys',
+    // 'likert_smileys',
     'open text',
-    'list',
-    'photo',
-    'location'
+    'list'
+    // 'photo',
+    // 'location'
   ];
 
   this.feedbackTypes = [
