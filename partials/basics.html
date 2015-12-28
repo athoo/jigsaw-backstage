@@ -1,0 +1,69 @@
+<div class="basics">
+  <p>开始设置实验信息吧.</p>
+
+  <md-card>
+    <md-card-content>
+      <h2>基本信息</h2>
+
+      <md-input-container>
+        <label>实验标题</label>
+        <input ng-model="experiment.title">
+        <div ng-messages>
+          <div ng-message>简单，好记，独一无二的名字.</div>
+        </div>
+      </md-input-container>
+
+      <!-- <md-input-container>
+        <label>Contact Email</label>
+        <input type="text" ng-model="experiment.contactEmail"></input>
+      </md-input-container> -->
+
+      <!-- <md-input-container>
+        <label>Organization</label>
+        <input ng-model="experiment.organization">
+        <div ng-messages>
+          <div ng-message>What organization is sponsoring the experiment? If it's not sponsored by
+            an organization, you can just use your name.</div>
+        </div>
+      </md-input-container> -->
+
+      <md-input-container>
+        <label>描述</label>
+        <textarea ng-model="experiment.description"></textarea>
+        <div ng-messages>
+          <div ng-message></div>
+        </div>
+      </md-input-container>
+
+      <div layout="row">
+        <md-input-container>
+        提醒方式
+        <md-select ng-model="experiment.ringtoneUri" placeholder="选择">
+          <md-option ng-repeat="ringtone in ringtones" value="/assets/ringtone/{{ringtone}}">
+            {{ringtone}}
+          </md-option>
+        </md-select>
+        </md-input-container>
+      </div>
+
+      <div class="padded instructions">
+        指导信息
+
+        <div class="source-frame">
+          <div class="ace_editor" ng-model="experiment.postInstallInstructions" ui-ace="{
+              onLoad: aceInfinity,
+              rendererOptions: {
+                minLines: 5,
+                maxLines: 100
+              }
+            }">
+          </div>
+        </div>
+        <div class="message">
+          用户刚登入实验系统时将会看见此信息.
+        </div>
+      </div>
+
+    </md-card-content>
+  </md-card>
+</div>
